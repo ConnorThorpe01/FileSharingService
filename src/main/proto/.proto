@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package com.FileService;
+
+option java_package = "FileService";
+option java_outer_classname = "FileServiceProto";
+
+service FileService {
+  rpc UploadFile (UploadFileRequest) returns (UploadFileResponse);
+  rpc DownloadFile (DownloadFileRequest) returns (DownloadFileResponse);
+}
+
+message UploadFileRequest {
+  string filename = 1;
+  bytes content = 2;
+}
+
+message UploadFileResponse {
+  string message = 1;
+}
+
+message DownloadFileRequest {
+  string filename = 1;
+}
+
+message DownloadFileResponse {
+  string filename = 1;
+  bytes content = 2;
+}
